@@ -1,10 +1,12 @@
-# 飞书多维表格插件合集
+# 飞书多维表格字段捷径合集
 
-> Feishu Bitable Plugins Collection
+> Feishu Bitable Field Shortcuts Collection
 
-本仓库收录了所有飞书多维表格（Lark Bitable）插件，包含 **字段捷径**（FaaS）和 **边栏插件**（Sidebar）两大类，按功能分类整理。
+本仓库收录了所有飞书多维表格（Lark Bitable）字段捷径插件（FaaS），按功能分类整理。
 
-## 字段捷径（Field Shortcuts）
+> 边栏插件请见：[bitable-sidebar-plugins](https://github.com/garyzheng0714-lang/bitable-sidebar-plugins)
+
+## 目录
 
 ### AI / 大模型调用
 
@@ -53,23 +55,6 @@
 |------|------|
 | [bitable-fbif-exhibitor-upload-tool](./bitable-fbif-exhibitor-upload-tool/) | 展商报馆信息上传，将展商数据推送至 FBIF 报馆系统 |
 | [bitable-fbif-exhibitor-design-info-query](./bitable-fbif-exhibitor-design-info-query/) | 展商报馆信息查询，查询展位图纸提交状态和审核统计 |
-
-## 边栏插件（Sidebar Plugins）
-
-> 详见 [sidebar-plugins/README.md](./sidebar-plugins/README.md)
-
-边栏插件以 iframe 形式运行在多维表格侧边栏中，拥有完整的前端 UI，支持批量操作。
-
-| 项目 | 说明 | 技术栈 |
-|------|------|--------|
-| [文字转表格图片](./sidebar-plugins/lark-base-plugin-sidebar-text-to-table-image/) | 将文本字段渲染为表格图片并上传至云存储 | React + TS |
-| [网页正文提取器](./sidebar-plugins/lark-base-plugin-sidebar-Web-Extractor/) | 网页内容提取，Amazon 畅销榜结构化解析 | Vue 3 + Element Plus |
-| [链接批量转附件](./sidebar-plugins/lark-base-plugin-sidebar-multi-link-to-attachment/) | 多组字段映射的 URL 批量下载转附件 | React 18 + Ant Design 5 |
-| [行记录生成文档](./sidebar-plugins/lark-base-plugin-sidebar-row-to-document/) | 根据行记录生成文档 | - |
-| [MD5 加密插件](./sidebar-plugins/feishu-md5-encrypt-plugin/) | 对表格数据进行 MD5 哈希 | - |
-| [海报批量生成器](./sidebar-plugins/bitable-poster-generator/) | 从表格数据批量生成海报 | React + TS + Vite |
-
----
 
 ## 通用开发指南
 
