@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetDesignList 接口文档</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            /*white-space: pre-wrap;*/
+            word-wrap: break-word;
+        }
+         .code2 {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .parameter {
+            margin-bottom: 15px;
+        }
+        .parameter-name {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        .parameter-type {
+            color: #8e44ad;
+            font-style: italic;
+        }
+        .parameter-required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .parameter-optional {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .note {
+            background-color: #fff9e6;
+            border-left: 4px solid #f1c40f;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background-color: #e8f8f5;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .error {
+            background-color: #fdeaea;
+            border-left: 4px solid #e74c3c;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>飞书系统报图信息对接接口文档</h1>
+    
+    <div class="container">
+        <h2>接口概述</h2>
+        <p>GetDesignList 接口用于获取展商图纸列表信息，包括展位基本信息和图纸审核状态。为了提高查询效率该接口只返回所有图纸都已提交的展商信息，由于展商图纸可能存在被驳回重新提交的情况，因此接口数据条数会有所变动，属于正常情况。</p>
+    </div>
+
+    <div class="container">
+        <h2>请求信息</h2>
+        <div class="parameter">
+            <span class="parameter-name">请求URL:</span> <code>GetDesignList.ashx</code>
+        </div>
+        <div class="parameter">
+            <span class="parameter-name">请求方法:</span> <code>GET</code>
+        </div>
+        
+        <div class="note">
+            <strong>注意：</strong>接口需要提供固定的code参数进行身份验证
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>请求参数</h2>
+        <table>
+            <tr>
+                <th>参数名</th>
+                <th>类型</th>
+                <th>是否必填</th>
+                <th>默认值</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>code</td>
+                <td>string</td>
+                <td class="parameter-required">必填</td>
+                <td>-</td>
+                <td>身份验证码，固定值：70EA237E-0EDA-409C-A8C9-6BB22F01CE51</td>
+            </tr>
+            <tr>
+                <td>page</td>
+                <td>int</td>
+                <td class="parameter-optional">选填</td>
+                <td>1</td>
+                <td>页码，最小值为1</td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>int</td>
+                <td class="parameter-optional">选填</td>
+                <td>20</td>
+                <td>每页记录数，范围1-100，默认20</td>
+            </tr>
+            <tr>
+                <td>keyword</td>
+                <td>string</td>
+                <td class="parameter-optional">选填</td>
+                <td>-</td>
+                <td>搜索关键词，用于模糊搜索展位号或展商名称</td>
+            </tr>
+        </table>
+        
+    </div>
+
+    <div class="container">
+        <h2>请求示例</h2>
+        <div class="code">
+            GET http://service.best-expo.com.cn/GetUrl/lark/GetDesignList.ashx?code=70EA237E-0EDA-409C-A8C9-6BB22F01CE51&page=1&limit=10&keyword=A01
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>返回数据格式</h2>
+        <p>接口返回JSON格式的数据，包含分页信息和展商图纸列表。以下是标准格式的JSON示例：</p>
+        
+        <h3>返回数据结构</h3>
+        <div class="code2">{
+    "code": 0,
+    "message": "success",
+    "count": 100,
+    "data": [
+        {
+            "BoothID": "12345",
+            "BoothNO": "A01",
+            "BoothExhibitor": "测试公司",
+            "BoothArea": "36",
+            "Hall": "1号馆",
+            "BoothTypeID": "1",
+            "ShowNameCn": "2023年展会",
+            "DesignUpStatus": "0",
+            "DesignUpTime": "",
+            "DesignList": [
+                {
+                    "BDesignID": "1001",
+                    "BDesignType": "1",
+                    "DesignCateCN": "展位设计图",
+                    "UPStatus": "1",
+                    "BDesignphoto": "http://service.best-expo.com.cn/DesignImg/20/1001.jpg",
+                    "DesignStatus": "主场通过 "
+                },
+                {
+                    "BDesignID": "1002",
+                    "BDesignType": "2",
+                    "DesignCateCN": "电路图",
+                    "UPStatus": "1",
+                    "BDesignphoto": "http://service.best-expo.com.cn/DesignImg/20/1002.jpg",
+                    "DesignStatus": "主场待审"
+                }
+            ],
+            "DesignStats": {
+                "TotalCount": 2,
+                "UploadedCount": 2,
+                "ApprovedCount": 1,
+                "PendingCount": 1,
+                "RejectedCount": 0
+            }
+        },
+        {
+            "BoothID": "12346",
+            "BoothNO": "A02",
+            "BoothExhibitor": "测试公司2",
+            "BoothArea": "36",
+            "Hall": "1号馆",
+            "BoothTypeID": "1",
+            "ShowNameCn": "2023年展会",
+            "DesignUpStatus": "1",
+            "DesignUpTime": "2023-12-01 10:30:00",
+            "DesignList": [
+                {
+                    "BDesignID": "1003",
+                    "BDesignType": "1",
+                    "DesignCateCN": "展位设计图",
+                    "UPStatus": "1",
+                    "BDesignphoto": "http://service.best-expo.com.cn/DesignImg/20/1003.jpg",
+                    "DesignStatus": "全部通过"
+                },
+                {
+                    "BDesignID": "1004",
+                    "BDesignType": "2",
+                    "DesignCateCN": "电路图",
+                    "UPStatus": "1",
+                    "BDesignphoto": "http://service.best-expo.com.cn/DesignImg/20/1004.jpg",
+                    "DesignStatus": "全部通过"
+                }
+            ],
+            "DesignStats": {
+                "TotalCount": 2,
+                "UploadedCount": 2,
+                "ApprovedCount": 2,
+                "PendingCount": 0,
+                "RejectedCount": 0
+            }
+        }
+    ]
+}</div>
+        
+        
+    </div>
+
+    <div class="container">
+        <h2>返回字段说明</h2>
+        
+        <h3>根字段</h3>
+        <table>
+            <tr>
+                <th>字段名</th>
+                <th>类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>code</td>
+                <td>int</td>
+                <td>状态码，0表示成功，-1表示失败</td>
+            </tr>
+            <tr>
+                <td>message</td>
+                <td>string</td>
+                <td>状态消息</td>
+            </tr>
+            <tr>
+                <td>count</td>
+                <td>int</td>
+                <td>总记录数</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>array</td>
+                <td>展商图纸列表数组</td>
+            </tr>
+        </table>
+        
+        <h3>展商图纸对象字段</h3>
+        <table>
+            <tr>
+                <th>字段名</th>
+                <th>类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>BoothID</td>
+                <td>string</td>
+                <td>展位ID</td>
+            </tr>
+            <tr>
+                <td>BoothNO</td>
+                <td>string</td>
+                <td>展位号</td>
+            </tr>
+            <tr>
+                <td>BoothExhibitor</td>
+                <td>string</td>
+                <td>展商名称</td>
+            </tr>
+            <tr>
+                <td>BoothArea</td>
+                <td>string</td>
+                <td>展位面积</td>
+            </tr>
+            <tr>
+                <td>Hall</td>
+                <td>string</td>
+                <td>展馆</td>
+            </tr>
+            <tr>
+                <td>BoothTypeID</td>
+                <td>string</td>
+                <td>展位类型ID</td>
+            </tr>
+            <tr>
+                <td>ShowNameCn</td>
+                <td>string</td>
+                <td>展会名称</td>
+            </tr>
+            <tr>
+                <td>DesignUpStatus</td>
+                <td>string</td>
+                <td>设计上传状态</td>
+            </tr>
+            <tr>
+                <td>DesignUpTime</td>
+                <td>string</td>
+                <td>设计上传时间</td>
+            </tr>
+            <tr>
+                <td>DesignList</td>
+                <td>array</td>
+                <td>图纸列表</td>
+            </tr>
+            <tr>
+                <td>DesignStats</td>
+                <td>object</td>
+                <td>图纸统计信息</td>
+            </tr>
+        </table>
+        
+        <h3>图纸对象字段</h3>
+        <table>
+            <tr>
+                <th>字段名</th>
+                <th>类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>BDesignID</td>
+                <td>string</td>
+                <td>图纸ID</td>
+            </tr>
+            <tr>
+                <td>BDesignType</td>
+                <td>string</td>
+                <td>图纸类型ID</td>
+            </tr>
+            <tr>
+                <td>DesignCateCN</td>
+                <td>string</td>
+                <td>图纸类型中文名称</td>
+            </tr>
+            <tr>
+                <td>UPStatus</td>
+                <td>string</td>
+                <td>提交状态，1表示已提交</td>
+            </tr>
+            <tr>
+                <td>BDesignphoto</td>
+                <td>string</td>
+                <td>图纸图片路径</td>
+            </tr>
+            <tr>
+                <td>DesignStatus</td>
+                <td>string</td>
+                <td>综合审核状态</td>
+            </tr>
+        </table>
+        
+        <h3>图纸统计对象字段</h3>
+        <table>
+            <tr>
+                <th>字段名</th>
+                <th>类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>TotalCount</td>
+                <td>int</td>
+                <td>已提交总图纸数量</td>
+            </tr>
+            <tr>
+                <td>UploadedCount</td>
+                <td>int</td>
+                <td>已上传数量(UPStatus=1)</td>
+            </tr>
+            <tr>
+                <td>ApprovedCount</td>
+                <td>int</td>
+                <td>已审核通过数量(BDesignStatus2=1)</td>
+            </tr>
+            <tr>
+                <td>PendingCount</td>
+                <td>int</td>
+                <td>待审核数量(BDesignStatus2=0)</td>
+            </tr>
+            <tr>
+                <td>RejectedCount</td>
+                <td>int</td>
+                <td>审核未通过数量(BDesignStatus2=2)</td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+   
+
+    <div class="container">
+        <h2>错误码说明</h2>
+        <table>
+            <tr>
+                <th>错误码</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>成功</td>
+            </tr>
+            <tr>
+                <td>-1</td>
+                <td>参数错误或缺少参数</td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+    <div class="container">
+        <h2>联系方式</h2>
+        <p>如有任何问题或建议，请联系开发团队。</p>
+    </div>
+</body>
+</html>

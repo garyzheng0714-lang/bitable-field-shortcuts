@@ -1,0 +1,24 @@
+{
+  "name": "field-link",
+  "version": "1.0.0",
+  "description": "Extract main content of web pages into clean Markdown for Feishu Field Shortcut (FaaS)",
+  "main": "index.js",
+  "scripts": {
+    "start": "block-basekit-cli start:field",
+    "build": "block-basekit-cli build:field",
+    "pack": "block-basekit-cli pack:field",
+    "dev": "block-basekit-cli dev:field"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@lark-opdev/block-basekit-cli": "^1.0.1",
+    "@types/node": "^24.3.0",
+    "esbuild": "^0.25.9",
+    "esbuild-register": "^3.6.0"
+  },
+  "dependencies": {
+    "@lark-opdev/block-basekit-server-api": "1.0.6",
+    "node-fetch": "^2.7.0"
+  }
+}

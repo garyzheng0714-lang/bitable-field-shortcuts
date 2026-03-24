@@ -1,0 +1,24 @@
+{
+  "name": "bitable-openrouter-gemini-image-shortcut",
+  "version": "1.0.0",
+  "description": "Feishu Bitable field shortcut for OpenRouter Gemini 3 Pro image generation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./block-basekit-cli-wrapper.js start:field",
+    "build": "node ./block-basekit-cli-wrapper.js build:field",
+    "pack": "node ./block-basekit-cli-wrapper.js pack:field",
+    "dev": "node ./block-basekit-cli-wrapper.js dev:field",
+    "test:local": "ts-node ./test/index.ts"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@lark-opdev/block-basekit-cli": "^1.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@lark-opdev/block-basekit-server-api": "1.0.6",
+    "@lark-opdev/cli": "^3.4.4",
+    "crypto-js": "^4.2.0"
+  }
+}

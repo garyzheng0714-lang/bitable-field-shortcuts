@@ -1,0 +1,11 @@
+{
+    "env": {
+        "TOS_ACCESS_KEY_ID": "mock_ak",
+        "TOS_ACCESS_KEY_SECRET": "mock_sk",
+        "TOS_REGION": "cn-beijing",
+        "TOS_ENDPOINT": "tos-cn-beijing.volces.com",
+        "TOS_BUCKET": "feishu-base",
+        "TOS_PREFIX": "feishu-qrcode/",
+        "TOS_SIGNED_URL_EXPIRES_SECONDS": "600"
+    }
+}

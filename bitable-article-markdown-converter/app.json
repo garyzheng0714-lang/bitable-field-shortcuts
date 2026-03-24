@@ -1,0 +1,9 @@
+{
+  "app_id": "cli_a123456789abcdef",
+  "version_id": "v1.0.0",
+  "app_type": "mini_program",
+  "version": {
+    "version": "1.0.0",
+    "remark": "网页正文提取字段捷径"
+  }
+}

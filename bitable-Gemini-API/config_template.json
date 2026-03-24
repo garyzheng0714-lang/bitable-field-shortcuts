@@ -1,0 +1,9 @@
+{
+  "apiKey": "YOUR_GEMINI_API_KEY",
+  "taskType": "text", 
+  "model": "gemini-2.5-flash",
+  "inputField": null,
+  "prompt": "Please summarize this text.",
+  "enableSearch": false,
+  "jsonSchema": ""
+}

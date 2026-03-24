@@ -1,0 +1,28 @@
+node_modules/
+.DS_Store
+
+# Build outputs
+/dist/
+/output/
+/coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Package managers
+pnpm-lock.yaml
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local config containing secrets
+config.json

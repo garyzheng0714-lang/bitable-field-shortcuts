@@ -1,0 +1,22 @@
+{
+  "name": "bitable-field-shortcut-aliyun-bailian",
+  "version": "1.0.0",
+  "description": "飞书多维表格字段捷径（FaaS）：调用阿里云百炼文本模型并返回结果、Token 用量与预估费用。",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./block-basekit-cli-wrapper.js start:field",
+    "build": "node ./block-basekit-cli-wrapper.js build:field",
+    "pack": "node ./block-basekit-cli-wrapper.js pack:field",
+    "dev": "node ./block-basekit-cli-wrapper.js dev:field"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@lark-opdev/block-basekit-cli": "^1.0.5",
+    "@lark-opdev/cli": "^3.4.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@lark-opdev/block-basekit-server-api": "1.0.6"
+  }
+}

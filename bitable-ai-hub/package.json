@@ -1,0 +1,22 @@
+{
+  "name": "field-starter",
+  "version": "1.0.0",
+  "description": "飞书多维表格 AI 大模型调用插件（基于 OpenRouter），支持 400+ AI 模型统一调用与自动算费。",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./block-basekit-cli-wrapper.js start:field",
+    "build": "node ./block-basekit-cli-wrapper.js build:field",
+    "pack": "node ./block-basekit-cli-wrapper.js pack:field",
+    "dev": "node ./block-basekit-cli-wrapper.js dev:field"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@lark-opdev/block-basekit-cli": "^1.0.5",
+    "@lark-opdev/cli": "^3.4.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@lark-opdev/block-basekit-server-api": "1.0.6"
+  }
+}
