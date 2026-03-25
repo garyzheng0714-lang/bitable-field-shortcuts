@@ -13,8 +13,8 @@
 | 项目 | 说明 |
 |------|------|
 | [bitable-ai-hub](./bitable-ai-hub/) | OpenRouter 多模型调用工具，支持 GPT-5.2、Gemini 3、Kimi、通义千问等 400+ 模型，支持深度思考和联网搜索 |
-| [bitable-doubao-websearch-shortcut](./bitable-doubao-websearch-shortcut/) | 豆包·方舟多模态模型调用，支持联网搜索、深度思考，自动计算 Token 用量与费用 |
-| [bitable-Gemini-API](./bitable-Gemini-API/) | Google Gemini API 调用字段捷径 |
+| [bitable-doubao-websearch-shortcut](./bitable-doubao-websearch-shortcut/) | 豆包·方舟多模态模型调用，支持文本+图片（多张）输入、联网搜索、深度思考，自动计算 Token 用量与费用 |
+| [bitable-Gemini-API](./bitable-Gemini-API/) | Google Gemini API 调用字段捷径，支持文本生成、图片理解、结构化输出、深度研究（Deep Research Agent），内置 Gemini 2.5 Flash/Pro 和 Gemini 3 Pro |
 | [bitable-field-aliyun-bailian](./bitable-field-aliyun-bailian/) | 阿里云百炼（通义千问）字段捷径，支持 Qwen 系列模型及三级联网搜索 |
 | [bitable-fbif-aliyun-qwen-text-generation](./bitable-fbif-aliyun-qwen-text-generation/) | 阿里云百炼 OpenAI 兼容接口文本生成，返回思考内容、Token 用量及费用预估 |
 | [bitable-fbif-OpenRouter-Image-Generation](./bitable-fbif-OpenRouter-Image-Generation/) | OpenRouter AI 图片生成器，支持参考图输入，自动上传 OSS |
@@ -25,7 +25,7 @@
 | 项目 | 说明 |
 |------|------|
 | [bitable-fbif-url-to-markdown](./bitable-fbif-url-to-markdown/) | 网页转 Markdown，专用微信公众号解析器 + Jina Reader API |
-| [bitable-article-markdown-converter](./bitable-article-markdown-converter/) | 网页正文提取转 Markdown，自研正文抽取算法，不依赖第三方库 |
+| [bitable-article-markdown-converter](./bitable-article-markdown-converter/) | 网页正文提取转 Markdown，优先使用 Jina Reader 抓取，回退为自研正文抽取算法，不依赖 jsdom/readability/turndown |
 
 ### 文件 / 附件处理
 
@@ -34,7 +34,7 @@
 | [bitable-fbif-attachment-to-url](./bitable-fbif-attachment-to-url/) | 附件转链接，上传至阿里云 OSS 或火山引擎 TOS 生成永久 URL |
 | [bitable-link-to-attachment-field](./bitable-link-to-attachment-field/) | 链接转附件，将下载 URL 批量转换为多维表格附件字段 |
 | [bitable-link-to-QR-Code](./bitable-link-to-QR-Code/) | 链接转二维码，支持多种预设样式（含 FBIF/Simba 品牌样式） |
-| [bitable-text-to-table-image](./bitable-text-to-table-image/) | 文本转表格图片，将结构化文本渲染为 PNG 表格图上传至对象存储 |
+| [bitable-text-to-table-image](./bitable-text-to-table-image/) | 文本转表格图片 / 附件转链接双模式，将结构化文本渲染为 PNG 表格图或将附件上传至对象存储（阿里云 OSS / 火山引擎 TOS） |
 
 ### 数据查询
 
