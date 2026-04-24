@@ -1,85 +1,133 @@
 # 飞书多维表格字段捷径合集
 
-> Feishu Bitable Field Shortcuts Collection
+> Feishu / Lark Bitable field shortcut collection
 
-本仓库收录了所有飞书多维表格（Lark Bitable）字段捷径插件（FaaS），按功能分类整理。
+本仓库集中维护多个飞书多维表格字段捷径插件。每个子目录都是一个可独立安装、调试、构建和打包的字段捷径项目，主要运行在飞书多维表格 FaaS 沙箱中，用于字段值处理、内容生成、附件处理、外部系统查询和业务数据同步。
 
-> 边栏插件请见：[bitable-sidebar-plugins](https://github.com/garyzheng0714-lang/bitable-sidebar-plugins)
+边栏插件合集请见：[bitable-sidebar-plugins](https://github.com/garyzheng0714-lang/bitable-sidebar-plugins)。
 
-## 目录
+## 功能分类
 
 ### AI / 大模型调用
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-ai-hub](./bitable-ai-hub/) | OpenRouter 多模型调用工具，支持 GPT-5.2、Gemini 3、Kimi、通义千问等 400+ 模型，支持深度思考和联网搜索 |
-| [bitable-doubao-websearch-shortcut](./bitable-doubao-websearch-shortcut/) | 豆包·方舟多模态模型调用，支持文本+图片（多张）输入、联网搜索、深度思考，自动计算 Token 用量与费用 |
-| [bitable-Gemini-API](./bitable-Gemini-API/) | Google Gemini API 调用字段捷径，支持文本生成、图片理解、结构化输出、深度研究（Deep Research Agent），内置 Gemini 2.5 Flash/Pro 和 Gemini 3 Pro |
-| [bitable-field-aliyun-bailian](./bitable-field-aliyun-bailian/) | 阿里云百炼（通义千问）字段捷径，支持 Qwen 系列模型及三级联网搜索 |
-| [bitable-fbif-aliyun-qwen-text-generation](./bitable-fbif-aliyun-qwen-text-generation/) | 阿里云百炼 OpenAI 兼容接口文本生成，返回思考内容、Token 用量及费用预估 |
-| [bitable-fbif-OpenRouter-Image-Generation](./bitable-fbif-OpenRouter-Image-Generation/) | OpenRouter AI 图片生成器，支持参考图输入，自动上传 OSS |
-| [bitable-Proofreading-Assistant](./bitable-Proofreading-Assistant/) | AI 纠错助手，返回修改后内容和修改说明（对象类型双列输出） |
+| --- | --- |
+| [bitable-ai-hub](./bitable-ai-hub/) | 通过 OpenRouter 调用多模型，支持文本生成、联网搜索等字段捷径能力 |
+| [bitable-doubao-websearch-shortcut](./bitable-doubao-websearch-shortcut/) | 调用豆包 / 火山方舟相关模型，支持文本、图片输入和联网搜索场景 |
+| [bitable-Gemini-API](./bitable-Gemini-API/) | Google Gemini API 字段捷径，包含文本生成、图片理解和结构化输出相关文档 |
+| [bitable-field-aliyun-bailian](./bitable-field-aliyun-bailian/) | 阿里云百炼 / 通义千问字段捷径，包含模型列表和联网搜索资料 |
+| [bitable-fbif-aliyun-qwen-text-generation](./bitable-fbif-aliyun-qwen-text-generation/) | 基于阿里云百炼 OpenAI 兼容接口的文本生成字段捷径 |
+| [bitable-fbif-OpenRouter-Image-Generation](./bitable-fbif-OpenRouter-Image-Generation/) | OpenRouter 图片生成字段捷径，支持参考图和对象存储上传配置 |
+| [bitable-Proofreading-Assistant](./bitable-Proofreading-Assistant/) | AI 文本纠错助手，输出修改后内容和修改说明 |
 
 ### 网页提取 / 内容转换
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-fbif-url-to-markdown](./bitable-fbif-url-to-markdown/) | 网页转 Markdown，专用微信公众号解析器 + Jina Reader API |
-| [bitable-article-markdown-converter](./bitable-article-markdown-converter/) | 网页正文提取转 Markdown，优先使用 Jina Reader 抓取，回退为自研正文抽取算法，不依赖 jsdom/readability/turndown |
+| --- | --- |
+| [bitable-fbif-url-to-markdown](./bitable-fbif-url-to-markdown/) | 网页 URL 转 Markdown，包含微信公众号内容解析和正文转换能力 |
+| [bitable-article-markdown-converter](./bitable-article-markdown-converter/) | 网页正文提取与 Markdown 转换，优先调用 Jina Reader 并包含本地回退逻辑 |
 
 ### 文件 / 附件处理
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-fbif-attachment-to-url](./bitable-fbif-attachment-to-url/) | 附件转链接，上传至阿里云 OSS 或火山引擎 TOS 生成永久 URL |
-| [bitable-link-to-attachment-field](./bitable-link-to-attachment-field/) | 链接转附件，将下载 URL 批量转换为多维表格附件字段 |
-| [bitable-link-to-QR-Code](./bitable-link-to-QR-Code/) | 链接转二维码，支持多种预设样式（含 FBIF/Simba 品牌样式） |
-| [bitable-text-to-table-image](./bitable-text-to-table-image/) | 文本转表格图片 / 附件转链接双模式，将结构化文本渲染为 PNG 表格图或将附件上传至对象存储（阿里云 OSS / 火山引擎 TOS） |
+| --- | --- |
+| [bitable-fbif-attachment-to-url](./bitable-fbif-attachment-to-url/) | 将多维表格附件上传到对象存储并写回可访问链接 |
+| [bitable-link-to-attachment-field](./bitable-link-to-attachment-field/) | 将下载链接批量转换为多维表格附件字段 |
+| [bitable-link-to-QR-Code](./bitable-link-to-QR-Code/) | 将链接生成二维码，支持多种样式配置 |
+| [bitable-text-to-table-image](./bitable-text-to-table-image/) | 将结构化文本渲染为表格图片，也包含附件转链接相关模式 |
 
 ### 数据查询
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-food-license-lookup-field](./bitable-food-license-lookup-field/) | 食品生产许可证查询，通过许可证编号查询生产者信息、有效期等 |
-| [bitable-company_query](./bitable-company_query/) | 企业工商信息查询，通过企业名称查询 25+ 项工商注册信息 |
+| --- | --- |
+| [bitable-food-license-lookup-field](./bitable-food-license-lookup-field/) | 通过食品生产许可证编号查询生产者、有效期等信息 |
+| [bitable-company_query](./bitable-company_query/) | 通过企业名称查询工商注册信息 |
 
 ### 集成 / 数据传输
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-anycross-transport](./bitable-anycross-transport/) | 飞书集成平台 (AnyCross) 传输工具，支持 JSON/KV 双模式 HTTP POST |
+| --- | --- |
+| [bitable-anycross-transport](./bitable-anycross-transport/) | 飞书集成平台 AnyCross 传输工具，支持 JSON / KV HTTP POST 模式 |
 
 ### FBIF 业务工具
 
 | 项目 | 说明 |
-|------|------|
-| [bitable-fbif-exhibitor-upload-tool](./bitable-fbif-exhibitor-upload-tool/) | 展商报馆信息上传，将展商数据推送至 FBIF 报馆系统 |
-| [bitable-fbif-exhibitor-design-info-query](./bitable-fbif-exhibitor-design-info-query/) | 展商报馆信息查询，查询展位图纸提交状态和审核统计 |
+| --- | --- |
+| [bitable-fbif-exhibitor-upload-tool](./bitable-fbif-exhibitor-upload-tool/) | 将展商数据推送到 FBIF 报馆系统 |
+| [bitable-fbif-exhibitor-design-info-query](./bitable-fbif-exhibitor-design-info-query/) | 查询展商报图 / 设计信息提交状态和审核统计 |
 
-## 通用开发指南
+## 技术栈
 
-所有字段捷径项目共享相同的开发流程：
+- TypeScript
+- Node.js
+- `@lark-opdev/block-basekit-server-api`
+- `@lark-opdev/block-basekit-cli` / `@lark-opdev/cli`
+- 飞书多维表格字段捷径 FaaS 运行环境
 
-```bash
-# 安装依赖
-npm install
+个别项目会根据业务需要引入对象存储 SDK、加密库、HTML 解析库或 API 客户端。请以对应子目录的 `package.json` 和 `README.md` 为准。
 
-# 本地开发调试
-npm start      # 启动本地服务
-npm run dev    # 执行一次 execute 函数（查看日志）
+## 项目结构
 
-# 构建与发布
-npm run build  # 构建产物
-npm run pack   # 打包为 output/output.zip，上传至飞书开发者后台
+```text
+.
+├── README.md
+├── bitable-ai-hub/
+├── bitable-doubao-websearch-shortcut/
+├── bitable-Gemini-API/
+├── bitable-link-to-QR-Code/
+├── bitable-text-to-table-image/
+└── ...
 ```
 
-### 运行环境
+常见子项目结构：
 
-- Node.js >= 14.21.0
-- 运行环境：飞书多维表格 FaaS 沙箱（1C/1G，超时 15 分钟）
-- 网络限制：无法访问公司内网
-- 依赖限制：避免使用 axios / got / moment / sharp / jsdom 等沙箱禁用库
+```text
+<shortcut>/
+├── src/index.ts        # 字段捷径入口
+├── config.json         # 字段捷径配置
+├── package.json        # 项目依赖和脚本
+├── tsconfig.json
+├── README.md           # 子项目说明
+└── test/               # 可选的本地测试脚本
+```
 
-## 原始仓库
+## 开始开发
 
-各项目原始独立仓库均位于 [garyzheng0714-lang](https://github.com/garyzheng0714-lang) GitHub 账号下。
+每个字段捷径需要在自己的子目录内独立安装依赖和运行命令：
+
+```bash
+cd bitable-link-to-QR-Code
+npm install
+```
+
+常见脚本：
+
+```bash
+npm start      # 启动字段捷径本地调试服务
+npm run dev    # 执行一次字段捷径函数，便于查看日志
+npm run build  # 构建项目
+npm run pack   # 打包为 output/output.zip，用于上传到飞书开发者后台
+```
+
+部分项目使用 `block-basekit-cli-wrapper.js` 调用 CLI，脚本名称保持一致。
+
+## 配置
+
+- 字段输入、输出和运行参数通常在子项目的 `config.json` 中维护。
+- API Key、对象存储凭证、模型配置、外部系统地址等敏感配置不要提交到仓库。
+- 部分项目提供 `config_template.json`、`docx/` 或 `docs/` 目录，请优先阅读子项目 README 和随附文档。
+
+## 运行环境说明
+
+- 推荐 Node.js 版本：以子项目 `package.json` / CLI 要求为准，字段捷径常见最低版本为 Node.js 14.21+。
+- 目标环境：飞书多维表格字段捷径 FaaS 沙箱。
+- 沙箱存在内存、超时、网络和依赖限制；避免引入在飞书沙箱中不可用的重型依赖。
+- `output/` 目录中的打包产物用于发布流程，不是日常开发入口。
+
+## 维护说明
+
+本仓库是字段捷径集合仓库。新增或调整插件时，请同步更新：
+
+1. 子项目 `README.md`
+2. 子项目 `config.json` 或配置模板
+3. 本仓库根目录的项目目录表
