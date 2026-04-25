@@ -1,10 +1,18 @@
-# 飞书多维表格字段捷径合集
+# bitable-field-shortcuts
 
-> Feishu / Lark Bitable field shortcut collection
+![类型](https://img.shields.io/badge/%E7%B1%BB%E5%9E%8B-%E9%A3%9E%E4%B9%A6%E5%AD%97%E6%AE%B5%E6%8D%B7%E5%BE%84-2563eb?style=flat-square)
+![技术栈](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-TypeScript%20Node.js-0f766e?style=flat-square)
+![状态](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E6%8F%92%E4%BB%B6%E5%90%88%E9%9B%86-16a34a?style=flat-square)
+![README](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-brightgreen?style=flat-square)
 
-本仓库集中维护多个飞书多维表格字段捷径插件。每个子目录都是一个可独立安装、调试、构建和打包的字段捷径项目，主要运行在飞书多维表格 FaaS 沙箱中，用于字段值处理、内容生成、附件处理、外部系统查询和业务数据同步。
+飞书插件：集中维护飞书多维表格字段捷径，用于字段值处理、AI 生成、附件转换、网页提取与 FBIF 业务数据同步。
 
-边栏插件合集请见：[bitable-sidebar-plugins](https://github.com/garyzheng0714-lang/bitable-sidebar-plugins)。
+## 仓库定位
+
+- 分类：飞书多维表格字段捷径 / 插件合集。
+- 面向对象：需要在多维表格字段层面处理内容、调用模型、转换附件或对接业务系统的内部工具开发者。
+- 运行宿主：飞书多维表格字段捷径 FaaS 沙箱。
+- 与其他表格仓库的区别：本仓库维护“字段捷径”，通常没有完整前端 UI；边栏插件合集请见 [bitable-sidebar-plugins](https://github.com/garyzheng0714-lang/bitable-sidebar-plugins)，通用表格转换工具不在本仓库。
 
 ## 功能分类
 
